@@ -406,7 +406,7 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                     _OrderModalBottomSheet(context);
                   },
                   child: Text(
-                    "Made Payment",
+                    "make Payment",
                     style: TextStyle(color: Colors.white, fontSize: 18.0),
                   ),
                 ),
