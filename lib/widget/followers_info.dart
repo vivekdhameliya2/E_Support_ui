@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class followers_info extends StatelessWidget {
   const followers_info({
     Key key,

@@ -11,6 +11,7 @@ class RankingListTile extends StatelessWidget {
       height: size.height * 0.56,
       child: ListView.builder(
         itemCount: data.length,
+        // ignore: missing_return
         itemBuilder: (context, index) {
           print(index);
           if (index < 3) {

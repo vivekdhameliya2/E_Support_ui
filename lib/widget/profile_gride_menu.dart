@@ -4,6 +4,7 @@ import 'package:e_supports/Screen/Setting_screen.dart';
 import 'package:e_supports/Screen/ranking_screen.dart';
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class Gride_menu extends StatelessWidget {
   const Gride_menu({
     Key key,
