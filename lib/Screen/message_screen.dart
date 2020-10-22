@@ -55,7 +55,9 @@ class MessageScreen extends StatelessWidget {
                               Icons.menu,
                               color: Colors.white,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              _OrderModalBottomSheet(context);
+                            },
                           ),
                         ],
                       ),
@@ -250,4 +252,77 @@ class MessageScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+void _OrderModalBottomSheet(context) {
+  showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20.0),
+          topRight: Radius.circular(20.0),
+        ),
+      ),
+      builder: (BuildContext bc) {
+        final Shader linearGradient = LinearGradient(
+          colors: <Color>[Color(0xFF7013F0), Color(0xFFCB0FF9)],
+        ).createShader(
+          Rect.fromLTWH(0.0, 0.0, 150.0, 70.0),
+        );
+        return Container(
+          child: new Wrap(
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Column(
+                  children: [
+                    Container(
+                      color: Colors.white,
+                      alignment: Alignment.center,
+                      height: 50,
+                      child: Text(
+                        "Mark all read",
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          foreground: Paint()..shader = linearGradient,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      color: Colors.white,
+                      alignment: Alignment.center,
+                      height: 50,
+                      child: Text(
+                        "Confirm Payment",
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          foreground: Paint()..shader = linearGradient,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 7,
+                    ),
+                    Container(
+                      color: Colors.white,
+                      alignment: Alignment.center,
+                      height: 50,
+                      child: Text(
+                        "Cancel",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black54,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      });
 }

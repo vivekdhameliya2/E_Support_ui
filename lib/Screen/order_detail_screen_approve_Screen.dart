@@ -4,6 +4,8 @@ import 'package:e_supports/widget/order_review_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import 'Order_Detail_Screen_Complate.dart';
+
 class OrderApproveScreen extends StatefulWidget {
   @override
   _OrderApproveScreenState createState() => _OrderApproveScreenState();
@@ -82,7 +84,7 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
         "https://cnet1.cbsistatic.com/img/l8RbnOsHzo6C0fHx-A7yGCDZxGI=/1200x675/2019/09/18/c07d7cfa-5cc7-4d64-a3bb-aabf6b778dcc/call-of-duty-mobile.jpg",
         "7 days ago",
         "4",
-      )
+      ),
     ];
     final Shader linearGradient = LinearGradient(
       colors: <Color>[Color(0xFF7013F0), Color(0xFFCB0FF9)],
@@ -214,7 +216,8 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               15),
-                                                      gradient: LinearGradient(colors: <Color>[
+                                                      gradient: LinearGradient(
+                                                          colors: <Color>[
                                                             Color(0xFF7013F0),
                                                             Color(0xFFCB0FF9)
                                                           ]),
@@ -447,16 +450,22 @@ void _OrderModalBottomSheet(context) {
                 margin: EdgeInsets.only(top: 10),
                 child: Column(
                   children: [
-                    Container(
-                      color: Colors.white,
-                      alignment: Alignment.center,
-                      height: 50,
-                      child: Text(
-                        "Confirm Payment",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          foreground: Paint()..shader = linearGradient,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => OrderDetailScreenComplete()));
+                      },
+                      child: Container(
+                        color: Colors.white,
+                        alignment: Alignment.center,
+                        height: 50,
+                        child: Text(
+                          "Confirm Payment",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            foreground: Paint()..shader = linearGradient,
+                          ),
                         ),
                       ),
                     ),

@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushReplacement(
+                              Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (BuildContext context) {
                                     return NotificationScreen();

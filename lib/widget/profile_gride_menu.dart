@@ -1,4 +1,5 @@
 import 'package:e_supports/Screen/Help_Screen.dart';
+import 'package:e_supports/Screen/MemberShip_Screen.dart';
 import 'package:e_supports/Screen/Setting_screen.dart';
 import 'package:e_supports/Screen/ranking_screen.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,10 @@ class Gride_menu extends StatelessWidget {
                             color: Color(0xFF7013F0),
                             size: 35,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => MemberShipScreen()));
+                          },
                         ),
                       ],
                     ),

@@ -1,4 +1,4 @@
-import 'package:e_supports/Screen/friend_profile_screen.dart';
+import 'package:e_supports/Screen/friend_profile_screnn.dart';
 import 'package:e_supports/models/comment_model.dart';
 import 'package:e_supports/models/feature.dart';
 import 'package:flutter/material.dart';
