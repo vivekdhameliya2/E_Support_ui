@@ -1,3 +1,4 @@
+import 'package:e_supports/Screen/profile_edit_screen.dart';
 import 'package:e_supports/models/megride.dart';
 import 'package:e_supports/widget/followers_info.dart';
 import 'package:e_supports/widget/me_post_list.dart';
@@ -203,13 +204,19 @@ class _MeScreenState extends State<MeScreen> {
             ),
             Positioned(
               top: 20,
-              child: Container(
-                padding: EdgeInsets.only(right: 20),
-                alignment: Alignment.centerRight,
-                width: size.width,
-                child: Icon(
-                  Icons.edit,
-                  color: Colors.white,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ProfileEditScreen()));
+                },
+                child: Container(
+                  padding: EdgeInsets.only(right: 20),
+                  alignment: Alignment.centerRight,
+                  width: size.width,
+                  child: Icon(
+                    Icons.edit,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
