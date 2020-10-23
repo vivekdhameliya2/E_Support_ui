@@ -1,4 +1,3 @@
-
 import 'package:e_supports/widget/create_item_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -63,11 +62,12 @@ class CreateItemScreen extends StatelessWidget {
                     height: size.height - ((size.width * 0.20) + 5),
                     width: size.width,
                     decoration: BoxDecoration(
-                        color: Color(0xFFF7F7F7),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20.0),
-                          topRight: Radius.circular(20.0),
-                        )),
+                      color: Color(0xFFF7F7F7),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.0),
+                        topRight: Radius.circular(20.0),
+                      ),
+                    ),
                     child: CreateItemWidget(),
                   ),
                 ],

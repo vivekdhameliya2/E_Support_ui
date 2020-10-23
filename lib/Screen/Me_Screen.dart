@@ -206,8 +206,11 @@ class _MeScreenState extends State<MeScreen> {
               top: 20,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProfileEditScreen()));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => ProfileEditScreen(),
+                    ),
+                  );
                 },
                 child: Container(
                   padding: EdgeInsets.only(right: 20),

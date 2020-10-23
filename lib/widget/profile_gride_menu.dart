@@ -183,8 +183,11 @@ class Gride_menu extends StatelessWidget {
                               size: 35,
                             ),
                             onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => MyItemScreen()));
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => MyItemScreen(),
+                                ),
+                              );
                             },
                           ),
                         ],
@@ -206,7 +209,11 @@ class Gride_menu extends StatelessWidget {
                             strokeWidth: 2,
                             radius: 45,
                             gradient: LinearGradient(
-                                colors: [Color(0xFF7013F0), Color(0xFFCB0FF9)]),
+                              colors: [
+                                Color(0xFF7013F0),
+                                Color(0xFFCB0FF9),
+                              ],
+                            ),
                             child: Icon(
                               Icons.settings,
                               color: Color(0xFF7013F0),
@@ -239,7 +246,11 @@ class Gride_menu extends StatelessWidget {
                           strokeWidth: 2,
                           radius: 45,
                           gradient: LinearGradient(
-                              colors: [Color(0xFF7013F0), Color(0xFFCB0FF9)]),
+                            colors: [
+                              Color(0xFF7013F0),
+                              Color(0xFFCB0FF9),
+                            ],
+                          ),
                           child: Icon(
                             Icons.help,
                             color: Color(0xFFCB0FF9),

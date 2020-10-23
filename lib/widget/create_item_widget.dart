@@ -103,8 +103,9 @@ class _CreateItemWidgetState extends State<CreateItemWidget> {
                         width: size.width * 0.45,
                         height: size.width * 0.3,
                         decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(20.0)),
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
                         child: Stack(
                           children: [
                             ClipRRect(
@@ -139,7 +140,7 @@ class _CreateItemWidgetState extends State<CreateItemWidget> {
                                       decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius:
-                                              BorderRadius.circular(10.0)),
+                                              BorderRadius.circular(10.0,),),
                                       child: Center(
                                           child: Icon(
                                         Icons.close,
