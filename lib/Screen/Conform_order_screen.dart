@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 class ConformOrderScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                                 "Confirm Order",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 20.0,
+                                  fontSize: size.width * 0.06,
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
@@ -102,10 +103,11 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                         child: Row(
                           children: [
                             Container(
-                              height: 40,
-                              width: 40,
+                              height: size.width * 0.125,
+                              width: size.width * 0.125,
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius:
+                                    BorderRadius.circular(size.width * 0.125),
                                 child: Image(
                                   image: NetworkImage(
                                       "https://cnet1.cbsistatic.com/img/l8RbnOsHzo6C0fHx-A7yGCDZxGI=/1200x675/2019/09/18/c07d7cfa-5cc7-4d64-a3bb-aabf6b778dcc/call-of-duty-mobile.jpg"),
@@ -127,7 +129,7 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                                         "Kale",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: size.width * 0.05,
                                           fontWeight: FontWeight.w300,
                                         ),
                                       ),
@@ -144,7 +146,7 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                                       Text(
                                         "50 Diamonds",
                                         style: TextStyle(
-                                          fontSize: 13,
+                                          fontSize: size.width * 0.04,
                                           fontWeight: FontWeight.bold,
                                           foreground: Paint()
                                             ..shader = linearGradient,
@@ -153,7 +155,7 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                                       Text(
                                         "/Round",
                                         style: TextStyle(
-                                          fontSize: 13,
+                                          fontSize: size.width * 0.04,
                                           color: Colors.grey,
                                         ),
                                       ),
@@ -183,7 +185,7 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                                 "Skill Order",
                                 style: TextStyle(
                                   color: Colors.black54,
-                                  fontSize: 17,
+                                  fontSize: size.width * 0.055,
                                 ),
                               ),
                               Spacer(),
@@ -191,21 +193,21 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                                 Text(
                                   "Dota 2",
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: size.width * 0.05,
                                   ),
                                 ),
                               if (selectedIndex == 1)
                                 Text(
                                   "Pubg",
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: size.width * 0.05,
                                   ),
                                 ),
                               if (selectedIndex == 2)
                                 Text(
                                   "Call of Duty",
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: size.width * 0.05,
                                   ),
                                 ),
                               Icon(
@@ -234,7 +236,7 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                               "Unit",
                               style: TextStyle(
                                 color: Colors.black54,
-                                fontSize: 17,
+                                fontSize: size.width * 0.055,
                               ),
                             ),
                             Container(
@@ -260,7 +262,11 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                                       ),
                                     ),
                                   ),
-                                  Text(unit.toString()),
+                                  Text(
+                                    unit.toString(),
+                                    style:
+                                        TextStyle(fontSize: size.width * 0.05),
+                                  ),
                                   InkWell(
                                     onTap: () {
                                       setState(() {
@@ -299,14 +305,14 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                               "Total:",
                               style: TextStyle(
                                 color: Colors.black54,
-                                fontSize: 17,
+                                fontSize: size.width * 0.045,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             Text(
                               unit.toString(),
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: size.width * 0.05,
                                 fontWeight: FontWeight.bold,
                                 foreground: Paint()..shader = linearGradient,
                               ),
@@ -318,14 +324,14 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                               "SubTotal:",
                               style: TextStyle(
                                 color: Colors.black54,
-                                fontSize: 17,
+                                fontSize: size.width * 0.045,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             Text(
                               "50 Diamonds",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: size.width * 0.05,
                                 fontWeight: FontWeight.bold,
                                 foreground: Paint()..shader = linearGradient,
                               ),
@@ -409,6 +415,7 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
   }
 
   Future _buildShowModalBottomSheet(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     FixedExtentScrollController statusController =
         FixedExtentScrollController(initialItem: selectedIndex);
     return showModalBottomSheet(
@@ -421,55 +428,20 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
               builder: (BuildContext context,
                   void Function(void Function()) setState) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  padding: const EdgeInsets.symmetric(horizontal: 0.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Container(
-                          height: 200.0,
+                          height: size.width * .5,
                           child: Column(
                             children: [
+                              SizedBox(height: size.width * 0.050),
                               Container(
-                                height: 40.0,
-                                child: Row(
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context).pop();
-                                        selectedIndex = 1;
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          "Cancel",
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              color: Colors.grey),
-                                        ),
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          "Done",
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              color: Color(0xFFCB0FF9)),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                height: 160.0,
-                                width: MediaQuery.of(context).size.width * 0.8,
+                                height: size.width * .45,
+                                width: size.width,
+                                
                                 child: ListWheelScrollView(
                                     controller: statusController,
                                     onSelectedItemChanged: (value) {
@@ -479,7 +451,9 @@ class _ConformOrderScreenState extends State<ConformOrderScreen> {
                                       });
                                     },
                                     useMagnifier: true,
-                                    itemExtent: 35,
+                                    itemExtent: 30,
+                                    diameterRatio:RenderListWheelViewport.defaultDiameterRatio
+                                     ,
                                     magnification: 1.4,
                                     children: [
                                       if (selectedIndex == 0)

@@ -16,7 +16,6 @@ class MePostList extends StatelessWidget {
       child: GridView.count(
           crossAxisCount: 3,
           children: grides.map((gride) {
-            print(gride.image);
             return GestureDetector(
               onTap: () {
                 Navigator.of(context).push(

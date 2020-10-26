@@ -13,6 +13,7 @@ class _ReviewFormState extends State<ReviewForm> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Form(
       key: _formKey,
       child: Column(
@@ -38,9 +39,10 @@ class _ReviewFormState extends State<ReviewForm> {
                       child: Text(
                         "Rating",
                         style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600),
+                          color: Colors.grey,
+                          fontSize: size.width * 0.055,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     Expanded(
@@ -49,13 +51,13 @@ class _ReviewFormState extends State<ReviewForm> {
                         color: Colors.amber,
                         borderColor: Colors.grey,
                         isReadOnly: false,
-                        size: 25,
+                        size: size.width * 0.085,
                         filledIconData: Icons.star,
                         halfFilledIconData: Icons.star_half,
                         defaultIconData: Icons.star,
                         starCount: 5,
                         allowHalfRating: true,
-                        spacing: 1.0,
+                        spacing: 1.5,
                         onRated: (value) {
                           print("rating value -> $value");
                           print("rating value dd -> ${value.truncate()}");
@@ -65,8 +67,8 @@ class _ReviewFormState extends State<ReviewForm> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20.0, right: 20.0
-                  ,top: 10),
+                  padding:
+                      const EdgeInsets.only(left: 20.0, right: 20.0, top: 10),
                   child: Divider(
                     height: 0.1,
                   ),
@@ -80,7 +82,7 @@ class _ReviewFormState extends State<ReviewForm> {
                         "Review",
                         style: TextStyle(
                             color: Colors.grey,
-                            fontSize: 17,
+                            fontSize: size.width * 0.055,
                             fontWeight: FontWeight.w600),
                       ),
                     ),

@@ -162,10 +162,11 @@ class _OrderDetailScreenPendingState extends State<OrderDetailScreenPending> {
                           child: Row(
                             children: [
                               Container(
-                                height: 50,
-                                width: 50,
+                                height: size.width * 0.125,
+                                width: size.width * 0.125,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius:
+                                      BorderRadius.circular(size.width * 0.125),
                                   child: Image(
                                     image: NetworkImage(
                                         "https://cnet1.cbsistatic.com/img/l8RbnOsHzo6C0fHx-A7yGCDZxGI=/1200x675/2019/09/18/c07d7cfa-5cc7-4d64-a3bb-aabf6b778dcc/call-of-duty-mobile.jpg"),
@@ -176,90 +177,88 @@ class _OrderDetailScreenPendingState extends State<OrderDetailScreenPending> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      //name
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Container(
-                                                child: Text(
-                                                  "Kale",
-                                                  textAlign: TextAlign.left,
-                                                  style: TextStyle(
-                                                    fontSize: 20,
-                                                    fontWeight: FontWeight.w300,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 5),
-                                                child: Container(
-                                                  alignment: Alignment.center,
-                                                  width: 25,
-                                                  height: 15,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                    gradient: LinearGradient(
-                                                        colors: <Color>[
-                                                          Color(0xFF7013F0),
-                                                          Color(0xFFCB0FF9)
-                                                        ]),
-                                                  ),
-                                                  child: Text(
-                                                    "34",
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 10),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Container(
-                                                child: RatingBarIndicator(
-                                                  rating: 4,
-                                                  itemBuilder:
-                                                      (context, index) => Icon(
-                                                    Icons.star,
-                                                    color: Colors.amber,
-                                                  ),
-                                                  itemCount: 5,
-                                                  itemSize: 10.0,
-                                                  direction: Axis.horizontal,
-                                                ),
-                                              ),
-                                              SizedBox(width: 3),
-                                              Text(
-                                                "4" + 'Ratings',
+                              Container(
+                                width: size.width * 0.8,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    //name
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Container(
+                                              child: Text(
+                                                "Kale",
+                                                textAlign: TextAlign.left,
                                                 style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 12),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 130,
-                                      ),
-                                      //pending
-                                      Container(
+                                                  fontSize: size.width * 0.06,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.only(top: 5),
+                                              child: Container(
+                                                alignment: Alignment.center,
+                                                width: 25,
+                                                height: 15,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                  gradient: LinearGradient(
+                                                      colors: <Color>[
+                                                        Color(0xFF7013F0),
+                                                        Color(0xFFCB0FF9)
+                                                      ]),
+                                                ),
+                                                child: Text(
+                                                  "34",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 10),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              child: RatingBarIndicator(
+                                                rating: 4,
+                                                itemBuilder: (context, index) =>
+                                                    Icon(
+                                                  Icons.star,
+                                                  color: Colors.amber,
+                                                ),
+                                                itemCount: 5,
+                                                itemSize: 10.0,
+                                                direction: Axis.horizontal,
+                                              ),
+                                            ),
+                                            SizedBox(width: 3),
+                                            Text(
+                                              "4" + 'Ratings',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 12),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Spacer(),
+                                    //pending
+                                    Center(
+                                      child: Container(
+                                        padding: EdgeInsets.only(top: 5),
                                         child: Column(
                                           children: [
                                             UnicornOutlineButton(
@@ -270,22 +269,21 @@ class _OrderDetailScreenPendingState extends State<OrderDetailScreenPending> {
                                                 Color(0xFFCB0FF9)
                                               ]),
                                               child: Text("Pending",
-                                                  style:
-                                                      TextStyle(fontSize: 12)),
+                                                  style: TextStyle(fontSize: 12)),
                                               onPressed: () {},
                                             ),
                                           ],
                                         ),
-                                      )
-                                    ],
-                                  ),
-                                ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ],
                           ),
                         ),
                         Container(
-                          height: 300,
+                          height: size.width * 0.65,
                           child: Image.network(
                             'https://cnet1.cbsistatic.com/img/l8RbnOsHzo6C0fHx-A7yGCDZxGI=/1200x675/2019/09/18/c07d7cfa-5cc7-4d64-a3bb-aabf6b778dcc/call-of-duty-mobile.jpg',
                             fit: BoxFit.cover,
@@ -299,7 +297,7 @@ class _OrderDetailScreenPendingState extends State<OrderDetailScreenPending> {
                               Text(
                                 "50 Diamonds",
                                 style: TextStyle(
-                                  fontSize: 27,
+                                  fontSize: size.width * 0.065,
                                   fontWeight: FontWeight.bold,
                                   foreground: Paint()..shader = linearGradient,
                                 ),
@@ -307,16 +305,14 @@ class _OrderDetailScreenPendingState extends State<OrderDetailScreenPending> {
                               Text(
                                 "/Round",
                                 style: TextStyle(
-                                  fontSize: 27,
+                                  fontSize: size.width * 0.065,
                                   color: Colors.grey,
                                 ),
                               ),
-                              SizedBox(
-                                width: 80,
-                              ),
+                              Spacer(),
                               Icon(
                                 Icons.message_rounded,
-                                size: 27,
+                                size: size.width * 0.065,
                                 color: Colors.grey,
                               )
                             ],

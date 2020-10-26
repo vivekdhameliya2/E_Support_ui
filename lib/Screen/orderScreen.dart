@@ -451,66 +451,17 @@ void _OrderModalBottomSheet(context) {
                 margin: EdgeInsets.only(top: 10),
                 child: Column(
                   children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Dialog(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        20.0)), //this right here
-                                child: Container(
-                                  height: 170,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    // crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.center,
-                                        child: Container(
-                                          // alignment: Alignment.center,
-                                          width: 90,
-                                          height: 90,
-                                          child: Image.asset(
-                                            'assets/bank.png',
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Container(
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          'Order successfully',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 17,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.only(top: 10),
-                        color: Colors.white,
-                        alignment: Alignment.center,
-                        height: 50,
-                        child: Text(
-                          "View All",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            foreground: Paint()..shader = linearGradient,
-                          ),
+                    Container(
+                      margin: EdgeInsets.only(top: 10),
+                      color: Colors.white,
+                      alignment: Alignment.center,
+                      height: 50,
+                      child: Text(
+                        "View All",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          foreground: Paint()..shader = linearGradient,
                         ),
                       ),
                     ),

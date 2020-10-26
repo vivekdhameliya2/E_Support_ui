@@ -40,7 +40,7 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
           child: Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 16.0),
+                padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   "Item",
                   style: TextStyle(fontSize: 18.0),
@@ -49,8 +49,8 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
               Spacer(),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => FriendsItem()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => FriendsItem()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 16.0),
@@ -67,7 +67,7 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
           width: size.width,
           height: 170.0,
           child: ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            // physics: NeverScrollableScrollPhysics(),
             itemCount: 2,
             itemBuilder: (context, index) {
               return Column(
@@ -76,23 +76,23 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
                     color: Colors.white,
                     child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 15.0, horizontal: 8.0),
+                            vertical: 10.0, horizontal: 6.0),
                         child: Row(children: [
                           Container(
-                            height: 63.0,
-                            width: 83.0,
+                            height: size.height * 0.09,
+                            width: size.width * 0.2,
                             child: Stack(
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(left: 10.0),
                                   child: Container(
-                                    height: 63.0,
-                                    width: 60.0,
+                                    height: size.width * 0.15,
+                                    width: size.width * 0.15,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20.0),
+                                      borderRadius: BorderRadius.circular(10.0),
                                     ),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(20.0),
+                                      borderRadius: BorderRadius.circular(10.0),
                                       child: Image.network(
                                         playerList[index].profileimage,
                                         fit: BoxFit.cover,
@@ -100,19 +100,6 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
                                     ),
                                   ),
                                 ),
-                                if (playerList[index].isOnline == true)
-                                  Positioned(
-                                      bottom: 8,
-                                      right: 10,
-                                      child: Container(
-                                        height: 10.0,
-                                        width: 10.0,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(5.0),
-                                          color: Colors.green,
-                                        ),
-                                      ))
                               ],
                             ),
                           ),
@@ -123,21 +110,23 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
                                 children: [
                                   Text(
                                     playerList[index].name,
-                                    style: TextStyle(color: Colors.black),
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: size.width * 0.04),
                                   ),
-                                  SizedBox(
-                                    width: 10.0,
-                                  ),
+                                  SizedBox(height: size.width * 0.01),
                                   Container(
                                     alignment: Alignment.center,
                                     width: 35,
                                     height: 15,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      gradient: LinearGradient(colors: <Color>[
-                                        Color(0xFF7013F0),
-                                        Color(0xFFCB0FF9)
-                                      ]),
+                                      gradient: LinearGradient(
+                                        colors: <Color>[
+                                          Color(0xFF7013F0),
+                                          Color(0xFFCB0FF9),
+                                        ],
+                                      ),
                                     ),
                                     child: Row(
                                       children: [
@@ -153,7 +142,7 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
                                           playerList[index].age,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 10),
+                                              fontSize: size.width * 0.03),
                                         ),
                                       ],
                                     ),
@@ -171,33 +160,34 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
                                         color: Colors.amber,
                                       ),
                                       itemCount: 5,
-                                      itemSize: 12.0,
+                                      itemSize: size.width * 0.04,
                                       direction: Axis.horizontal,
                                     ),
                                   ),
                                   SizedBox(width: 5),
                                   Text(
                                     "${playerList[index].ratting} Rattings",
-                                    style: TextStyle(fontSize: 12.0),
+                                    style:
+                                        TextStyle(fontSize: size.width * 0.03),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 5),
+                              SizedBox(height: size.width * 0.01),
                               Row(
                                 children: [
                                   Text(
                                     '${playerList[index].diamonds} Diamonds',
                                     style: TextStyle(
                                         color: Color(0xFFCB0FF9),
-                                        fontSize: 15.0,
+                                        fontSize: size.width * 0.04,
                                         fontWeight: FontWeight.w800),
                                   ),
                                   Text(
                                     '/Round',
                                     style: TextStyle(
                                         color: Colors.grey[400],
-                                        fontSize: 15.0),
-                                  )
+                                        fontSize: size.width * 0.04),
+                                  ),
                                 ],
                               ),
                             ],
@@ -216,7 +206,9 @@ class _FriendsProfileItemListState extends State<FriendsProfileItemList> {
                                 child: Text(
                                   "Order",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 15.0),
+                                    color: Colors.white,
+                                    fontSize: 15.0,
+                                  ),
                                 ),
                               ),
                             ),

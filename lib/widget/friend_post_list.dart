@@ -44,329 +44,336 @@ class _FriendPostState extends State<FriendPost> {
     );
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Row(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => FriendProfileScreen()));
-                  },
-                  child: CircleAvatar(
-                    radius: 30.0,
-                    backgroundImage: NetworkImage(widget.post.profileimage),
-                  ),
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(widget.post.name),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Container(
-                          alignment: Alignment.center,
-                          width: 30,
-                          height: 17,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            gradient: LinearGradient(colors: <Color>[
-                              Color(0xFF7013F0),
-                              Color(0xFFCB0FF9)
-                            ]),
-                          ),
-                          child: Row(
-                            children: [
-                              Text(
-                                widget.post.age,
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 10),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5.0,
-                    ),
-                    Text(
-                      "29 July",
-                      style: TextStyle(
-                        color: Colors.grey[400],
-                      ),
-                    )
-                  ],
-                ),
-                Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      isFollow = !isFollow;
-                    });
-                  },
-                  child: Container(
-                    height: 45.0,
-                    width: 110.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      gradient: LinearGradient(
-                        colors: <Color>[Color(0xFF7013F0), Color(0xFFCB0FF9)],
-                      ),
-                    ),
-                    child: isFollow == true
-                        ? Center(
-                            child: Text("Following",
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.white,
-                                )))
-                        : Padding(
-                            padding: const EdgeInsets.all(2.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  color: Colors.white),
-                              child: Center(
-                                  child: Text(
-                                "+ follow",
-                                style: TextStyle(
-                                    fontSize: 16.0, color: Color(0xFFCB0FF9)),
-                              )),
-                            ),
-                          ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          GestureDetector(
-            onDoubleTap: () {
-              setState(() {
-                isLiked = !isLiked;
-                print(isLiked);
-                if (isLiked == true) {
-                  counter++;
-                } else {
-                  counter--;
-                }
-              });
-            },
-            child: Container(
-              height: size.height * 0.47,
-              width: double.infinity,
-              child: Image.network(
-                widget.post.image,
-                fit: BoxFit.cover,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
               ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            child: Text(
-              widget.post.profilename,
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            child: Container(
-              height: 50.0,
               child: Row(
                 children: [
-                  LikeButton(
-                    isLiked: isLiked,
-                    onTap: onLikeButtonTapped,
-                    size: 30.0,
-                    circleColor: CircleColor(
-                        start: Color(0xFF7013F0), end: Color(0xFFCB0FF9)),
-                    bubblesColor: BubblesColor(
-                      dotPrimaryColor: Color(0xFF7013F0),
-                      dotSecondaryColor: Color(0xFFCB0FF9),
-                    ),
-                    likeBuilder: (isLiked) {
-                      if (isLiked) {
-                        return LinearGradientMask(
-                          child: Icon(
-                            Icons.favorite,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                        );
-                      }
-                      return Icon(
-                        Icons.favorite_border,
-                        color: Colors.grey,
-                        size: 30.0,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => FriendProfileScreen(),
+                        ),
                       );
                     },
-                    likeCount: counter,
-                    countBuilder: (int count, bool isLiked, String text) {
-                      var color =
-                          isLiked ? Colors.deepPurpleAccent : Colors.grey;
-                      Widget result;
-                      if (count == 0) {
-                        result = Text(
-                          "love",
-                          style: TextStyle(color: color),
-                        );
-                      } else
-                        result = Text(
-                          text,
-                          style: TextStyle(color: color),
-                        );
-                      return result;
-                    },
+                    child: CircleAvatar(
+                      radius: 30.0,
+                      backgroundImage: NetworkImage(widget.post.profileimage),
+                    ),
                   ),
                   SizedBox(
                     width: 10.0,
                   ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.comment,
-                          color: Colors.grey,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text(widget.post.name),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 17,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              gradient: LinearGradient(colors: <Color>[
+                                Color(0xFF7013F0),
+                                Color(0xFFCB0FF9)
+                              ]),
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  widget.post.age,
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 10),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Text(
+                        "29 July",
+                        style: TextStyle(
+                          color: Colors.grey[400],
                         ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
-                        Text(widget.post.age),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 0.0,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      _settingGiftBottomSheet(context, widget.post);
-                    },
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.wallet_giftcard,
-                          color: Colors.grey,
-                        ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
-                        Text(widget.post.age),
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                   Spacer(),
-                  Text(
-                    "${widget.post.likes} likes",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  SizedBox(
-                    width: 5.0,
-                  ),
-                  Container(
-                    width: 80.0,
-                    //color: Colors.red,
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          top: 5,
-                          right: 0,
-                          child: CircleAvatar(
-                            radius: 20.0,
-                            backgroundImage: NetworkImage(
-                                "https://images.fineartamerica.com/public/images/overview/overviewGalaxyCase001.jpg"),
-                          ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isFollow = !isFollow;
+                      });
+                    },
+                    child: Container(
+                      height: size.width * 0.07,
+                      width: size.width * 0.2,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        gradient: LinearGradient(
+                          colors: <Color>[Color(0xFF7013F0), Color(0xFFCB0FF9)],
                         ),
-                        Positioned(
-                          top: 5,
-                          right: 20.0,
-                          child: CircleAvatar(
-                            radius: 20.0,
-                            backgroundImage: NetworkImage(
-                                "https://images.fineartamerica.com/public/assets/images/overview/productTapestry.jpg"),
-                          ),
-                        ),
-                        Positioned(
-                          top: 5,
-                          right: 40.0,
-                          child: CircleAvatar(
-                            radius: 20.0,
-                            backgroundImage:
-                                NetworkImage(widget.post.profileimage),
-                          ),
-                        ),
-                      ],
+                      ),
+                      child: isFollow == true
+                          ? Center(
+                              child: Text("Following",
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Colors.white,
+                                  )))
+                          : Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    color: Colors.white),
+                                child: Center(
+                                    child: Text(
+                                  "+ follow",
+                                  style: TextStyle(
+                                      fontSize: 16.0, color: Color(0xFFCB0FF9)),
+                                )),
+                              ),
+                            ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              _settingCommentBottomSheet(context, widget.post);
-            },
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-              child: Text(
-                "view all ${widget.post.age} comments",
-                style: TextStyle(color: Colors.grey[400]),
+            SizedBox(
+              height: 10.0,
+            ),
+            GestureDetector(
+              onDoubleTap: () {
+                setState(() {
+                  isLiked = !isLiked;
+                  print(isLiked);
+                  if (isLiked == true) {
+                    counter++;
+                  } else {
+                    counter--;
+                  }
+                });
+              },
+              child: Container(
+                height: size.height * 0.45,
+                width: double.infinity,
+                child: Image.network(
+                  widget.post.image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-              child: RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text: "Serenity:",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black)),
-                TextSpan(
-                    text: " Fire",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black54)),
-              ]))),
-          Padding(
+              child: Text(
+                widget.post.profilename,
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-              child: RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text: "Karlie:",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black)),
-                TextSpan(
-                    text: " awesome",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black54)),
-              ]))),
-          Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-              child: RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text: "Monroe:",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black)),
-                TextSpan(
-                    text: " Thanks",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black54)),
-              ]))),
-        ],
+              child: Container(
+                height: 50.0,
+                child: Row(
+                  children: [
+                    LikeButton(
+                      isLiked: isLiked,
+                      onTap: onLikeButtonTapped,
+                      size: 30.0,
+                      circleColor: CircleColor(
+                          start: Color(0xFF7013F0), end: Color(0xFFCB0FF9)),
+                      bubblesColor: BubblesColor(
+                        dotPrimaryColor: Color(0xFF7013F0),
+                        dotSecondaryColor: Color(0xFFCB0FF9),
+                      ),
+                      likeBuilder: (isLiked) {
+                        if (isLiked) {
+                          return LinearGradientMask(
+                            child: Icon(
+                              Icons.favorite,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                          );
+                        }
+                        return Icon(
+                          Icons.favorite_border,
+                          color: Colors.grey,
+                          size: 30.0,
+                        );
+                      },
+                      likeCount: counter,
+                      countBuilder: (int count, bool isLiked, String text) {
+                        var color =
+                            isLiked ? Colors.deepPurpleAccent : Colors.grey;
+                        Widget result;
+                        if (count == 0) {
+                          result = Text(
+                            "love",
+                            style: TextStyle(color: color),
+                          );
+                        } else
+                          result = Text(
+                            text,
+                            style: TextStyle(color: color),
+                          );
+                        return result;
+                      },
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.comment,
+                            color: Colors.grey,
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Text(widget.post.age),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 0.0,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        _settingGiftBottomSheet(context, widget.post);
+                      },
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.wallet_giftcard,
+                            color: Colors.grey,
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Text(widget.post.age),
+                        ],
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      "${widget.post.likes} likes",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    SizedBox(
+                      width: 5.0,
+                    ),
+                    Container(
+                      width: 80.0,
+                      //color: Colors.red,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 5,
+                            right: 0,
+                            child: CircleAvatar(
+                              radius: 20.0,
+                              backgroundImage: NetworkImage(
+                                  "https://images.fineartamerica.com/public/images/overview/overviewGalaxyCase001.jpg"),
+                            ),
+                          ),
+                          Positioned(
+                            top: 5,
+                            right: 20.0,
+                            child: CircleAvatar(
+                              radius: 20.0,
+                              backgroundImage: NetworkImage(
+                                  "https://images.fineartamerica.com/public/assets/images/overview/productTapestry.jpg"),
+                            ),
+                          ),
+                          Positioned(
+                            top: 5,
+                            right: 40.0,
+                            child: CircleAvatar(
+                              radius: 20.0,
+                              backgroundImage:
+                                  NetworkImage(widget.post.profileimage),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                _settingCommentBottomSheet(context, widget.post);
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                child: Text(
+                  "view all ${widget.post.age} comments",
+                  style: TextStyle(color: Colors.grey[400]),
+                ),
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                child: RichText(
+                    text: TextSpan(children: [
+                  TextSpan(
+                      text: "Serenity:",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black)),
+                  TextSpan(
+                      text: " Fire",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black54)),
+                ]))),
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                child: RichText(
+                    text: TextSpan(children: [
+                  TextSpan(
+                      text: "Karlie:",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black)),
+                  TextSpan(
+                      text: " awesome",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black54)),
+                ]))),
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                child: RichText(
+                    text: TextSpan(children: [
+                  TextSpan(
+                      text: "Monroe:",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black)),
+                  TextSpan(
+                      text: " Thanks",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black54)),
+                ]))),
+          ],
+        ),
       ),
     );
   }
@@ -549,6 +556,7 @@ void _settingCommentBottomSheet(context, post) {
 }
 
 void _settingGiftBottomSheet(context, post) {
+  final size = MediaQuery.of(context).size;
   List<Feature> stories = [
     Feature(
       "https://images.financialexpress.com/2019/08/freefire.jpg",
@@ -595,14 +603,16 @@ void _settingGiftBottomSheet(context, post) {
             ),
           ),
           SizedBox(
-            height: 10.0,
+            height: 5.0,
           ),
           Container(
-            height: 300.0,
+            height: size.width* .45,
+            // color: Colors.amber,
             child: GridView.builder(
               itemCount: stories.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, mainAxisSpacing: 5.0),
+                  crossAxisCount: 4, mainAxisSpacing: 5.0,
+                  crossAxisSpacing: 5),
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {},
@@ -610,14 +620,14 @@ void _settingGiftBottomSheet(context, post) {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(60.0)),
+                            borderRadius: BorderRadius.circular(size.width*0.13)),
                         child: ClipRRect(
-                            borderRadius: BorderRadius.circular(60),
+                            borderRadius: BorderRadius.circular(size.width*0.13),
                             child: Image.network(
                               stories[index].image,
                               fit: BoxFit.cover,
-                              height: 60.0,
-                              width: 60.0,
+                              height: size.width*0.13,
+                              width: size.width*0.13,
                             )),
                       ),
                       Row(
@@ -627,9 +637,9 @@ void _settingGiftBottomSheet(context, post) {
                             Icons.favorite,
                             color: Color(0xFF7013F0),
                           ),
-                          SizedBox(
-                            width: 15.0,
-                          ),
+                          // SizedBox(
+                          //   width: 5.0,
+                          // ),
                           Text(stories[index].name),
                         ],
                       ),
@@ -667,8 +677,8 @@ void _settingGiftBottomSheet(context, post) {
                       print("give");
                     },
                     child: Container(
-                      height: 30.0,
-                      width: 90.0,
+                      height: size.width*0.06,
+                      width: size.width*0.17,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
                         gradient: LinearGradient(

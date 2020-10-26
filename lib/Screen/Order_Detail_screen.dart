@@ -107,7 +107,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
               width: size.width,
             ),
             Positioned(
-              top: 5,
+              // top: 1,
               child: Column(
                 children: [
                   Container(
@@ -138,7 +138,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                   "Dota 2\'s post",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 20.0,
+                                    fontSize: size.width * 0.06,
                                     fontWeight: FontWeight.w800,
                                   ),
                                 ),
@@ -166,10 +166,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             child: Row(
                               children: [
                                 Container(
-                                  height: 50,
-                                  width: 50,
+                                  height: size.width * 0.125,
+                                  width: size.width * 0.125,
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(
+                                        size.width * 0.125),
                                     child: Image(
                                       image: NetworkImage(
                                           "https://cnet1.cbsistatic.com/img/l8RbnOsHzo6C0fHx-A7yGCDZxGI=/1200x675/2019/09/18/c07d7cfa-5cc7-4d64-a3bb-aabf6b778dcc/call-of-duty-mobile.jpg"),
@@ -178,7 +179,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 10,
+                                  width: size.width * 0.01,
                                 ),
                                 Column(
                                   children: [
@@ -191,7 +192,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                             "Kale",
                                             textAlign: TextAlign.left,
                                             style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: size.width * 0.06,
                                               fontWeight: FontWeight.w300,
                                             ),
                                           ),
@@ -249,15 +250,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                SizedBox(width: 40),
                               ],
                             ),
                           ),
                           Container(
-                            height: 300,
+                            height: size.height * 0.35,
                             child: Image.network(
                               'https://cnet1.cbsistatic.com/img/l8RbnOsHzo6C0fHx-A7yGCDZxGI=/1200x675/2019/09/18/c07d7cfa-5cc7-4d64-a3bb-aabf6b778dcc/call-of-duty-mobile.jpg',
                               fit: BoxFit.cover,
@@ -271,7 +268,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                 Text(
                                   "50 Diamonds",
                                   style: TextStyle(
-                                    fontSize: 27,
+                                    fontSize: size.width*0.06,
                                     fontWeight: FontWeight.bold,
                                     foreground: Paint()
                                       ..shader = linearGradient,
@@ -280,13 +277,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                 Text(
                                   "/Round",
                                   style: TextStyle(
-                                    fontSize: 27,
+                                    fontSize: size.width*0.06,
                                     color: Colors.grey,
                                   ),
                                 ),
-                                SizedBox(
-                                  width: 80,
-                                ),
+                                Spacer(),
                                 Icon(
                                   Icons.message_rounded,
                                   size: 27,

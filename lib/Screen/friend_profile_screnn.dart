@@ -71,7 +71,7 @@ class _FriendProfileScreenState extends State<FriendProfileScreen> {
             Image.asset(
               "assets/purse.jpg",
               fit: BoxFit.cover,
-              height: 200,
+              height: size.width * 0.7,
               width: size.width,
             ),
             Positioned(
@@ -111,7 +111,7 @@ class _FriendProfileScreenState extends State<FriendProfileScreen> {
               ),
             ),
             Positioned(
-              top: 110,
+              top: size.height * 0.135,
               left: size.width * 0.5 - 50,
               child: Container(
                 child: ClipRRect(
@@ -130,7 +130,7 @@ class _FriendProfileScreenState extends State<FriendProfileScreen> {
               ),
             ),
             Positioned(
-              top: 212,
+              top: size.height * 0.285,
               left: size.width * 0.5 + 70,
               child: Container(
                 alignment: Alignment.center,
@@ -172,7 +172,7 @@ class _FriendProfileScreenState extends State<FriendProfileScreen> {
               ),
             ),
             Positioned(
-              top: 210,
+              top: size.height * 0.285,
               child: Container(
                 alignment: Alignment.center,
                 width: size.width,
@@ -187,7 +187,7 @@ class _FriendProfileScreenState extends State<FriendProfileScreen> {
               ),
             ),
             Positioned(
-              top: 230,
+              top: size.height * 0.32,
               child: Container(
                 alignment: Alignment.center,
                 width: size.width,
@@ -202,7 +202,7 @@ class _FriendProfileScreenState extends State<FriendProfileScreen> {
               ),
             ),
             Positioned(
-              top: 250,
+              top: size.height * 0.35,
               child: Container(
                 alignment: Alignment.center,
                 width: size.width,
@@ -217,7 +217,7 @@ class _FriendProfileScreenState extends State<FriendProfileScreen> {
               ),
             ),
             Positioned(
-              top: 280,
+              top: size.height * 0.4,
               child: Container(
                   alignment: Alignment.center,
                   width: size.width,
@@ -293,50 +293,59 @@ class _FriendProfileScreenState extends State<FriendProfileScreen> {
                   )),
             ),
             Positioned(
-              top: 320,
+              top: size.height * 0.45,
               child: followers_info(
                 size: size,
                 color: Colors.black87,
               ),
             ),
             Positioned(
-              top: 370,
+              top: size.height * 0.52,
               child: FriendsProfileItemList(),
             ),
             Positioned(
-                top: 565,
-                child: Container(
-                  height: 45.0,
-                  width: size.width,
-                  color: Colors.grey,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 100.0),
-                        child: FlatButton.icon(
-                            onPressed: () {
-                              print("follow");
-                            },
-                            icon: Icon(Icons.add, color: Colors.white),
-                            label: Text(
-                              "Follow",
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 20.0),
-                            )),
+              top: size.width * 1.55,
+              child: Container(
+                height: 45.0,
+                width: size.width,
+                color: Colors.grey,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 100.0),
+                      child: FlatButton.icon(
+                        onPressed: () {
+                          print("follow");
+                        },
+                        icon: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                        label: Text(
+                          "Follow",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                          ),
+                        ),
                       ),
-                      FlatButton(
-                          onPressed: () {
-                            print("chat");
-                          },
-                          child: Text(
-                            "Chat",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20.0),
-                          ))
-                    ],
-                  ),
-                )),
+                    ),
+                    FlatButton(
+                        onPressed: () {
+                          print("chat");
+                        },
+                        child: Text(
+                          "Chat",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0,
+                          ),
+                        ))
+                  ],
+                ),
+              ),
+            ),
             Container(
               margin: EdgeInsets.fromLTRB(0, 610, 0, 0),
               child: FriendProfileGridView(

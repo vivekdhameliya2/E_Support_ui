@@ -135,7 +135,7 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                                   "Order Detail",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 20.0,
+                                    fontSize: size.width * 0.06,
                                     fontWeight: FontWeight.w800,
                                   ),
                                 ),
@@ -195,7 +195,8 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                                                     "Kale",
                                                     textAlign: TextAlign.left,
                                                     style: TextStyle(
-                                                      fontSize: 20,
+                                                      fontSize:
+                                                          size.width * 0.06,
                                                       fontWeight:
                                                           FontWeight.w300,
                                                     ),
@@ -217,16 +218,18 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                                                           BorderRadius.circular(
                                                               15),
                                                       gradient: LinearGradient(
-                                                          colors: <Color>[
-                                                            Color(0xFF7013F0),
-                                                            Color(0xFFCB0FF9)
-                                                          ]),
+                                                        colors: <Color>[
+                                                          Color(0xFF7013F0),
+                                                          Color(0xFFCB0FF9)
+                                                        ],
+                                                      ),
                                                     ),
                                                     child: Text(
                                                       "34",
                                                       style: TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 10),
+                                                        color: Colors.white,
+                                                        fontSize: 10,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -252,8 +255,9 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                                                 Text(
                                                   "4" + 'Ratings',
                                                   style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 12),
+                                                    color: Colors.black,
+                                                    fontSize: 12,
+                                                  ),
                                                 )
                                               ],
                                             ),
@@ -264,6 +268,7 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                                         ),
                                         //pending
                                         Container(
+                                          padding: EdgeInsets.only(top: 5),
                                           child: Column(
                                             children: [
                                               UnicornOutlineButton(
@@ -292,7 +297,7 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                             ),
                           ),
                           Container(
-                            height: 300,
+                            height: size.width * 0.6,
                             child: Image.network(
                               'https://cnet1.cbsistatic.com/img/l8RbnOsHzo6C0fHx-A7yGCDZxGI=/1200x675/2019/09/18/c07d7cfa-5cc7-4d64-a3bb-aabf6b778dcc/call-of-duty-mobile.jpg',
                               fit: BoxFit.cover,
@@ -306,7 +311,7 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                                 Text(
                                   "50 Diamonds",
                                   style: TextStyle(
-                                    fontSize: 27,
+                                    fontSize: size.width * 0.07,
                                     fontWeight: FontWeight.bold,
                                     foreground: Paint()
                                       ..shader = linearGradient,
@@ -315,16 +320,14 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                                 Text(
                                   "/Round",
                                   style: TextStyle(
-                                    fontSize: 27,
+                                    fontSize: size.width * 0.07,
                                     color: Colors.grey,
                                   ),
                                 ),
-                                SizedBox(
-                                  width: 50,
-                                ),
+                                Spacer(),
                                 Icon(
                                   Icons.message_rounded,
-                                  size: 27,
+                                  size: size.width * 0.07,
                                   color: Colors.grey,
                                 )
                               ],
@@ -385,7 +388,10 @@ class _OrderApproveScreenState extends State<OrderApproveScreen> {
                             width: double.infinity,
                             child: Text(
                               "13 Review",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: size.width * 0.055,
+                              ),
                             ),
                           ),
                           Container(
